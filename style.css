@@ -1,0 +1,41 @@
+:root {
+  --bg-indigo: #3752fd;
+  --light-indigo: #f4f7ff;
+  --color-green: #00303c;
+}
+.assigned-task-checkbox {
+  background-color: var(--bg-indigo);
+}
+#assign-discover-section > div {
+  height: 164px;
+}
+body,
+#theme-button,
+#number-header-box,
+.assign-task,
+.card-body {
+  background-color: var(--light-indigo);
+}
+.card-body h2,
+.text-sm,
+.date-time,
+.activity-log {
+  color: var(--color-green);
+}
+#number-header {
+  font-size: 32px;
+  font-weight: bold;
+}
+#number-header-box {
+  width: 124px;
+}
+.card-body-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#clear-history {
+  background-color: var(--bg-indigo);
+}

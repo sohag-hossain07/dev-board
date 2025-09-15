@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>DevBoard</title>
+  </head>
+  <body>
+    <div class="container mx-auto pt-6 pb-16">
+      <!-- header section -->
+      <header class="mb-5">
+        <div
+          class="navbar flex items-center justify-between bg-base-100 rounded-xl p-6"
+        >
+          <div class="flex items-center">
+            <img src="/assets/logo.png" alt="logo image" />
+            <p class="text-4xl ml-3">
+              <span>Dev</span><span class="font-bold">Board</span>
+            </p>
+          </div>
+          <div class="flex items-center justify-between" style="width: 225px">
+            <div
+              id="number-header-box"
+              class="flex justify-evenly items-center rounded-full py-2"
+            >
+              <img src="/assets/checkbox.png" alt="checkbox image" />
+              <span id="number-header">20</span>
+            </div>
+            <div id="theme-button" class="p-3 rounded-full cursor-pointer">
+              <img src="/assets/theme-btn.png" alt="theme image" />
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- main section -->
+      <main>
+        <div class="grid grid-flow-col grid-cols-4 gap-4 items-center">
+          <!-- main task section -->
+          <div class="col-span-3 bg-white rounded-xl p-4">
+            <!-- Assigned task, explore something new, and date section -->
+            <div
+              class="grid grid-flow-col grid-cols-4 items-center gap-2"
+              id="assign-discover-section"
+            >
+              <!-- assign task -->
+              <div
+                class="assign-task grid grid-flow-col gap-2 items-center justify-evenly rounded-xl p-6"
+              >
+                <div
+                  class="w-16 h-16 bg-white rounded-full flex justify-center items-center"
+                >
+                  <img src="/assets/checkbox.png" alt="checkbox image" />
+                  <!-- <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="size-4 w-7 h-7 p-1 font-bold text-white rounded-lg assigned-task-checkbox"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg> -->
+                </div>
+                <div>
+                  <p style="font-size: 16px; font-weight: 500">Assigned Task</p>
+                  <p style="font-size: 32px; font-weight: 700" id="task-number">
+                    00
+                  </p>
+                </div>
+              </div>
+              <!-- discover something new section -->
+              <div
+                class="col-span-2 grid grid-flow-col gap-2 justify-start items-center p-6 bg-gradient-to-r from-indigo-600 via-indigo-500 to-indigo-300 rounded-xl mx-4"
+              >
+                <div class="mr-5">
+                  <img src="/assets/board.png" alt="board image" />
+                </div>
+                <p class="text-2xl text-white font-medium leading-9">
+                  Discover something<br />New Today!
+                </p>
+              </div>
+              <div
+                class="assign-task grid grid-flow-col gap-2 items-center justify-evenly rounded-xl p-6"
+              >
+                <div
+                  class="w-16 h-16 bg-white rounded-full flex justify-center items-center"
+                >
+                  <img src="/assets/calender.png" alt="calander image" />
+                </div>
+                <div>
+                  <p class="text-2xl" id="show-day"></p>
+                  <p class="text-2xl font-bold" id="show-date"></p>
+                </div>
+              </div>
+            </div>
+            <!-- divider -->
+            <div class="divider my-8"></div>
+            <!-- card section with tasks -->
+            <div class="grid grid-cols-3 gap-5 mb-8">
+              <!-- cart one -->
+              <div class="card-body rounded-xl p-5">
+                <div>
+                  <p
+                    class="rounded-xl bg-white font-normal inline-block px-3 py-2 text-base"
+                  >
+                    ShopEase
+                  </p>
+                </div>
+                <h2 class="text-2xl font-medium my-4 cart-header">
+                  Fix Mobile Button
+                </h2>
+                <div class="p-4 bg-white rounded-md">
+                  <p class="card-body-text text-base opacity-50">
+                    Debug using Chrome DevTools, check for overlapping elements,
+                    and ensure onClick works properly and ensure onClick works
+                    properly
+                  </p>
+                </div>
+                <hr class="opacity-25 my-3" />
+                <!-- <div class="divider my-3"></div> -->
+                <div class="card-actions justify-between items-center">
+                  <div>
+                    <p class="text-sm">Deadline</p>
+                    <p id="date-time" class="date-time font-medium"></p>
+                  </div>
+                  <button class="btn btn-primary complete-button">
+                    Completed
+                  </button>
+                </div>
+              </div>
+              <!-- cart two -->
+              <div class="card-body rounded-xl p-5">
+                <div>
+                  <p
+                    class="card-title rounded-xl bg-white font-normal inline-block px-3 py-2 text-base"
+                  >
+                    CloudSync
+                  </p>
+                </div>
+                <h2 class="text-2xl font-medium my-4 cart-header">
+                  Add Dark Mode
+                </h2>
+                <div class="p-4 bg-white rounded-md">
+                  <p class="card-body-text text-base opacity-50">
+                    Store the user's preference in localStorage, update CSS
+                    variables dynamically, and apply a smooth transition effect.
+                  </p>
+                </div>
+                <hr class="opacity-25 my-3" />
+                <!-- <div class="divider my-3"></div> -->
+                <div class="card-actions justify-between items-center">
+                  <div>
+                    <p class="text-sm">Deadline</p>
+                    <p id="date-time" class="date-time font-medium"></p>
+                  </div>
+                  <button class="btn btn-primary complete-button">
+                    Completed
+                  </button>
+                </div>
+              </div>
+              <!-- cart three -->
+              <div class="card-body rounded-xl p-5">
+                <div>
+                  <p
+                    class="card-title rounded-xl bg-white font-normal inline-block px-3 py-2 text-base"
+                  >
+                    SwiftPay
+                  </p>
+                </div>
+                <h2 class="text-2xl font-medium my-4 cart-header">
+                  Optimize Home page 
+                </h2>
+                <div class="p-4 bg-white rounded-md">
+                  <p class="card-body-text text-base opacity-50">
+                    Debug using Chrome DevTools, check for overlapping elements,
+                    and ensure onClick works properly and ensure onClick works
+                    properly
+                  </p>
+                </div>
+                <hr class="opacity-25 my-3" />
+                <!-- <div class="divider my-3"></div> -->
+                <div class="card-actions justify-between items-center">
+                  <div>
+                    <p class="text-sm">Deadline</p>
+                    <p id="date-time" class="date-time font-medium"></p>
+                  </div>
+                  <button class="btn btn-primary complete-button">
+                    Completed
+                  </button>
+                </div>
+              </div>
+              <!-- cart four -->
+              <div class="card-body rounded- p-5">
+                <div>
+                  <p
+                    class="card-title rounded-xl bg-white font-normal inline-block px-3 py-2 text-base"
+                  >
+                    Meta
+                  </p>
+                </div>
+                <h2 class="text-2xl font-medium my-4 cart-header">
+                  Add new emoji 🤲
+                </h2>
+                <div class="p-4 bg-white rounded-md">
+                  <p class="card-body-text text-base opacity-50">
+                    Debug using Chrome DevTools, check for overlapping elements,
+                    and ensure onClick works properly and ensure onClick works
+                    properly
+                  </p>
+                </div>
+                <hr class="opacity-25 my-3" />
+                <!-- <div class="divider my-3"></div> -->
+                <div class="card-actions justify-between items-center">
+                  <div>
+                    <p class="text-sm">Deadline</p>
+                    <p id="date-time" class="date-time font-medium"></p>
+                  </div>
+                  <button class="btn btn-primary complete-button">
+                    Completed
+                  </button>
+                </div>
+              </div>
+              <!-- cart five -->
+              <div class="card-body rounded- p-5">
+                <div>
+                  <p
+                    class="card-title rounded-xl bg-white font-normal inline-block px-3 py-2 text-base"
+                  >
+                    Google LLC
+                  </p>
+                </div>
+                <h2 class="text-2xl font-medium my-4 cart-header">
+                  Integrate OpenAI API
+                </h2>
+                <div class="p-4 bg-white rounded-md">
+                  <p class="card-body-text text-base opacity-50">
+                    Debug using Chrome DevTools, check for overlapping elements,
+                    and ensure onClick works properly and ensure onClick works
+                    properly
+                  </p>
+                </div>
+                <hr class="opacity-25 my-3" />
+                <!-- <div class="divider my-3"></div> -->
+                <div class="card-actions justify-between items-center">
+                  <div>
+                    <p class="text-sm">Deadline</p>
+                    <p id="date-time" class="date-time font-medium"></p>
+                  </div>
+                  <button class="btn btn-primary complete-button">
+                    Completed
+                  </button>
+                </div>
+              </div>
+              <!-- cart six -->
+              <div class="card-body rounded- p-5">
+                <div>
+                  <p
+                    class="card-title rounded-xl bg-white font-normal inline-block px-3 py-2 text-base"
+                  >
+                    Glassdoar
+                  </p>
+                </div>
+                <h2 class="text-2xl font-medium my-4 cart-header">
+                  Improve Job searching
+                </h2>
+                <div class="p-4 bg-white rounded-md">
+                  <p class="card-body-text text-base opacity-50">
+                    Debug using Chrome DevTools, check for overlapping elements,
+                    and ensure onClick works properly and ensure onClick works
+                    properly
+                  </p>
+                </div>
+                <hr class="opacity-25 my-3" />
+                <div class="card-actions justify-between items-center">
+                  <div>
+                    <p class="text-sm">Deadline</p>
+                    <p id="date-time" class="date-time font-medium"></p>
+                  </div>
+                  <button class="btn btn-primary complete-button">
+                    Completed
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- activity log section -->
+          <div id="activity-log" class="p-6 bg-white rounded-xl w-full h-full">
+            <div id="activity-log" class="flex items-center justify-center">
+              <img src="/assets/activity.png" alt="activity log image" />
+              <span class="activity-log text-xl ml-4">Activity Log</span>
+            </div>
+            <div class="flex justify-center my-4">
+              <button
+                id="clear-history"
+                class="text-white text-base font-medium outline-none py-3 px-4 rounded-xl cursor-pointer"
+              >
+                Clear History
+              </button>
+            </div>
+            <!-- divider -->
+            <hr class="opacity-25 mb-6" />
+            <!-- activity history box -->
+            <div id="activity-history-box"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- script file -->
+    <script src="/scripts/app.js"></script>
+  </body>
+</html>
