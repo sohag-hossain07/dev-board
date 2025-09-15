@@ -1,5 +1,5 @@
 // variables
-const completeButtons = document.getElementsByClassName(" complete-button");
+const completeButtons = document.getElementsByClassName("complete-button");
 const taskNumber = document.getElementById("task-number");
 const numberHeader = document.getElementById("number-header");
 const activityHistoryBox = document.getElementById("activity-history-box");
@@ -72,5 +72,34 @@ for (const completeButton of completeButtons) {
     div.appendChild(p);
     activityHistoryBox.appendChild(div);
     p.innerText = `You have completed the task ${headerText} at ${realTime}`;
+    // disable completed button
+    completeButton.style.opacity = "40%";
+    completeButton.disabled = true;
   });
 }
+// clear activity when click on the clear history button
+const clearHistory = document.getElementById("clear-history");
+clearHistory.addEventListener("click", function () {
+  activityHistoryBox.style.display = "none";
+});
+// change body background color when click on the color pallet
+document.getElementById("theme-button").addEventListener("click", function () {
+  // random number generate 0-255
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  // fixed opacity
+  const a = 0.1;
+  // RGBA format
+  const randomColor = `rgba(${r}, ${g}, ${b}, ${a})`;
+  // RGB format
+  const randomColorBtn = `rgb(${r}, ${g}, ${b})`;
+  // change body background
+  document.body.style.backgroundColor = randomColor;
+  document.body.style.backgroundColor.opacity = "10%";
+  // change button background
+  clearHistory.style.backgroundColor = randomColorBtn;
+  for (const completeButton of completeButtons) {
+    completeButton.style.backgroundColor = randomColorBtn;
+  }
+});

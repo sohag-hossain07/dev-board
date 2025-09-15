@@ -39,3 +39,8 @@ body,
 #clear-history {
   background-color: var(--bg-indigo);
 }
+.complete-button {
+  background-color: var(--bg-indigo);
+  color: white;
+  border: none;
+}
