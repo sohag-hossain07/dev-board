@@ -30,8 +30,7 @@ function setDeadline(dateString) {
   const option = { day: "numeric", month: "short", year: "numeric" };
   return date.toLocaleDateString("en-US", option);
 }
-
-// document.getElementById("date-time").innerText = setDeadline("2025-09-20");
+// set different date as deadline in the card
 const setDateTime = document.getElementsByClassName("date-time");
 for (let i = 0; i < setDateTime.length; i++) {
   const element = setDateTime[i];
@@ -53,12 +52,25 @@ for (const completeButton of completeButtons) {
       completeButton.parentNode.parentNode.querySelector(
         ".cart-header"
       ).innerText;
-    activityLog = headerText;
-    // add activities in the box
-    activityHistoryBox.innerHTML = `
-            <div>
-                <p>You have completed the task ${activityLog} at </p>
-            </div>
-        `;
+    // get real time and show the message
+    const option = {
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+      hour12: true,
+    };
+    const realTime = today.toLocaleTimeString("en-US", option);
+    // make a dynamic message box in the activity log section and show the message
+    const div = document.createElement("div");
+    const p = document.createElement("p");
+    div.style.backgroundColor = "#F4F7FF";
+    div.style.padding = "12px";
+    div.style.borderRadius = "12px";
+    div.style.marginBottom = "16px";
+    p.style.fontSize = "16px";
+    p.style.opacity = "70%";
+    div.appendChild(p);
+    activityHistoryBox.appendChild(div);
+    p.innerText = `You have completed the task ${headerText} at ${realTime}`;
   });
 }
